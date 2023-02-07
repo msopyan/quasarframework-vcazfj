@@ -13,7 +13,11 @@
       class="bg-purple text-black rounded-borders"
     >
       <q-carousel-slide name="style" class="column no-wrap flex-center">
-        <q-icon name="style" size="56px" />
+        <q-img
+          :src="url"
+          spinner-color="white"
+          style="height: 140px; max-width: 150px"
+        />
         <div class="q-mt-md text-center">
           {{ lorem }}
         </div>
@@ -45,11 +49,12 @@ import { ref, watch } from 'vue';
 
 export default {
   setup() {
-    const navPos = ref('bottom');
+    const navPos = ref('top');
     const vertical = ref(false);
+    const url = ref('https://cdn.quasar.dev/img/mountains.jpg');
 
     watch(vertical, (val) => {
-      navPos.value = val === true ? 'right' : 'bottom';
+      navPos.value = val === true ? 'right' : 'top';
     });
 
     return {
@@ -65,6 +70,11 @@ export default {
         { value: 'bottom', label: 'bottom (default)' },
         { value: 'left', label: 'left' },
       ],
+
+      url,
+      refresh() {
+        url.value = 'https://cdn.quasar.dev/img/mountains.jpg' + Math.random();
+      },
 
       slide: ref('style'),
       lorem:
