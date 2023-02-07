@@ -9,8 +9,8 @@
       :arrows="arrows"
       :navigation="navigation"
       :navigation-position="navPos"
-      height="300px"
-      class="bg-purple text-black rounded-borders"
+      height="auto"
+      class="text-black rounded-borders"
     >
       <q-carousel-slide name="style" class="column no-wrap flex-center">
         <q-img
@@ -23,6 +23,8 @@
         </div>
       </q-carousel-slide>
       <q-carousel-slide name="tv" class="column no-wrap flex-center">
+        <div class="q-mt-md title text-center">HYGIENE RULES</div>
+        <div class="text-center">Prambanan Factory</div>
         <img
           alt="Quasar logo"
           src="~assets/quasar-logo-inner.svg"

@@ -1,1 +1,10 @@
 // app global css in SCSS form
+$font-family_1: 'Inter';
+
+.title {
+  font-family: $font-family_1;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 24px;
+}
