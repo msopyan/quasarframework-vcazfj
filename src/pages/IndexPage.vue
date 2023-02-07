@@ -13,10 +13,12 @@
       class="text-black rounded-borders"
     >
       <q-carousel-slide name="style" class="column no-wrap flex-center">
-        <q-img
-          :src="url"
-          spinner-color="white"
-          style="height: 140px; max-width: 150px"
+        <div class="q-mt-md title text-center">HYGIENE RULES</div>
+        <div class="text-center">Prambanan Factory</div>
+        <img
+          alt="Quasar logo"
+          src="~assets/human.png"
+          style="width: 200px; height: 140px"
         />
         <div class="q-mt-md text-center">
           {{ lorem }}
@@ -35,13 +37,25 @@
         </div>
       </q-carousel-slide>
       <q-carousel-slide name="layers" class="column no-wrap flex-center">
-        <q-icon name="layers" size="56px" />
+        <div class="q-mt-md title text-center">HYGIENE RULES</div>
+        <div class="text-center">Prambanan Factory</div>
+        <img
+          alt="Quasar logo"
+          src="~assets/peanut.png"
+          style="width: 200px; height: 140px"
+        />
         <div class="q-mt-md text-center">
           {{ lorem }}
         </div>
       </q-carousel-slide>
       <q-carousel-slide name="map" class="column no-wrap flex-center">
-        <q-icon name="terrain" size="56px" />
+        <div class="q-mt-md title text-center">HYGIENE RULES</div>
+        <div class="text-center">Prambanan Factory</div>
+        <img
+          alt="Quasar logo"
+          src="~assets/human-head.png"
+          style="width: 200px; height: 140px"
+        />
         <div class="q-mt-md text-center">
           {{ lorem }}
         </div>
