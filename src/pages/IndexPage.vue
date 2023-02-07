@@ -23,7 +23,11 @@
         </div>
       </q-carousel-slide>
       <q-carousel-slide name="tv" class="column no-wrap flex-center">
-        <q-icon name="live_tv" size="56px" />
+        <img
+          alt="Quasar logo"
+          src="~assets/quasar-logo-inner.svg"
+          style="width: 200px; height: 140px"
+        />
         <div class="q-mt-md text-center">
           {{ lorem }}
         </div>
