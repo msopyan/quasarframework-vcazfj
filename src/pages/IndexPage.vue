@@ -1,59 +1,75 @@
 <template>
-  <q-page class="column flex-center">
-    <q-knob
-      v-model="count"
-      :min="min"
-      :max="max"
-      size="80px"
-      show-value
-      :thickness="0.13"
-      color="primary"
-      track-color="dark"
+  <div class="q-pa-md">
+    <q-carousel
+      v-model="slide"
+      swipeable
+      animated
+      :padding="padding"
+      :vertical="vertical"
+      :arrows="arrows"
+      :navigation="navigation"
+      :navigation-position="navPos"
+      height="300px"
+      class="bg-purple text-black rounded-borders"
     >
-      <q-avatar size="75px">
-        <img alt="Quasar logo" src="~assets/quasar-logo-inner.svg" />
-      </q-avatar>
-    </q-knob>
-
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 140px"
-    />
-
-    <div class="q-mt-xl">
-      <q-btn
-        color="primary"
-        dense
-        round
-        label="-"
-        :disable="count === min"
-        @click="count--"
-      />
-
-      <span class="q-mx-md text-bold">{{ count }}</span>
-
-      <q-btn
-        color="primary"
-        dense
-        round
-        label="+"
-        :disable="count === max"
-        @click="count++"
-      />
-    </div>
-
-    <div class="q-mt-md" style="width: 200px">
-      <q-slider v-model="count" :min="min" :max="max" />
-    </div>
-  </q-page>
+      <q-carousel-slide name="style" class="column no-wrap flex-center">
+        <q-icon name="style" size="56px" />
+        <div class="q-mt-md text-center">
+          {{ lorem }}
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide name="tv" class="column no-wrap flex-center">
+        <q-icon name="live_tv" size="56px" />
+        <div class="q-mt-md text-center">
+          {{ lorem }}
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide name="layers" class="column no-wrap flex-center">
+        <q-icon name="layers" size="56px" />
+        <div class="q-mt-md text-center">
+          {{ lorem }}
+        </div>
+      </q-carousel-slide>
+      <q-carousel-slide name="map" class="column no-wrap flex-center">
+        <q-icon name="terrain" size="56px" />
+        <div class="q-mt-md text-center">
+          {{ lorem }}
+        </div>
+      </q-carousel-slide>
+    </q-carousel>
+  </div>
 </template>
 
-<script setup>
-import { ref } from 'vue';
+<script>
+import { ref, watch } from 'vue';
 
-const count = ref(0);
+export default {
+  setup() {
+    const navPos = ref('bottom');
+    const vertical = ref(false);
 
-const min = -5;
-const max = 5;
+    watch(vertical, (val) => {
+      navPos.value = val === true ? 'right' : 'bottom';
+    });
+
+    return {
+      padding: ref(true),
+      vertical,
+      arrows: ref(true),
+      navigation: ref(true),
+
+      navPos,
+      navigationPositions: [
+        { value: 'top', label: 'top' },
+        { value: 'right', label: 'right' },
+        { value: 'bottom', label: 'bottom (default)' },
+        { value: 'left', label: 'left' },
+      ],
+
+      slide: ref('style'),
+      lorem:
+        'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Itaque voluptatem totam, architecto cupiditate officia rerum, error dignissimos praesentium libero ab nemo.',
+    };
+  },
+};
 </script>
